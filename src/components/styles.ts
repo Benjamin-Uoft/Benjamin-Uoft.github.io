@@ -1,13 +1,23 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
-background:transparent;
-position: absolute;
-top: -10px;
-left: 10px;
-display: flex;
-align-items: center;
+  background:transparent;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
 `
+
+export const TreeContainer = styled.div`
+  position:absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+
+`;
 
 export const HeaderBar = styled.h1`
   background: grey;

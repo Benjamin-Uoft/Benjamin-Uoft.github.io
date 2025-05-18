@@ -1,9 +1,30 @@
 // import { useState } from 'react'
-import { HeaderBar, Title, Tabs, SearchIcon, LanguageToggle, HeaderContainer } from './components/styles';
+import { HeaderBar, Title, Tabs, SearchIcon, LanguageToggle, HeaderContainer, TreeContainer } from './components/styles';
 import { TiArrowSortedDown } from "react-icons/ti";
 import { FaSearch } from "react-icons/fa";
+import Tree from 'react-d3-tree';
 
-
+const treeData = [
+  {
+    name: 'Parent',
+    children: [
+      {
+        name: 'Child 1',
+      },
+      {
+        name: 'Child 2',
+        children: [
+          {
+            name: 'Grandchild 1',
+          },
+          {
+            name: 'Grandchild 2',
+          },
+        ],
+      },
+    ],
+  },
+];
 
 
 function App() {
@@ -23,7 +44,10 @@ function App() {
           <FaSearch size={35} color="white" />
         </SearchIcon>
       </HeaderContainer>
-
+      
+      <TreeContainer>
+        <Tree data={treeData} />
+      </TreeContainer>
       <LanguageToggle>
         English
         <TiArrowSortedDown size = {30} color = "black" />
