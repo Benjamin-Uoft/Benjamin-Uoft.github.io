@@ -1,14 +1,8 @@
 // import { useState } from 'react'
-import styled from 'styled-components'
+import { HeaderBar, Title, Tabs, SearchIcon, LanguageToggle, HeaderContainer } from './components/styles';
+import { TiArrowSortedDown } from "react-icons/ti";
+import { FaSearch } from "react-icons/fa";
 
-
-const Header = styled.h1`
-background: black;
-border-radius: 5px;
-position: absolute;
-top: 10px;
-left: 10px;
- ` 
 
 
 
@@ -17,9 +11,24 @@ function App() {
 
   return (
     
-      
-      <Header>Family tree</Header>
-      
+      <>
+      <HeaderContainer>
+        <HeaderBar>
+          <Title>Family tree</Title>
+          <Tabs>About</Tabs>
+          <Tabs>Request an edit</Tabs>
+
+        </HeaderBar>
+        <SearchIcon>
+          <FaSearch size={35} color="white" />
+        </SearchIcon>
+      </HeaderContainer>
+
+      <LanguageToggle>
+        English
+        <TiArrowSortedDown size = {30} color = "black" />
+      </LanguageToggle>
+      </>
     
   )
 }
