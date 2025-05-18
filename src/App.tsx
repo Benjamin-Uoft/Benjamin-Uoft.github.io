@@ -1,9 +1,14 @@
 // import { useState } from 'react'
-import './App.css'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 
 
-// const Wrapper = styled.div 
+const Header = styled.h1`
+background: black;
+border-radius: 5px;
+position: absolute;
+top: 10px;
+left: 10px;
+ ` 
 
 
 
@@ -11,11 +16,11 @@ function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <>
+    
       
-      <h1>Family tree website!</h1>
+      <Header>Family tree</Header>
       
-    </>
+    
   )
 }
 
