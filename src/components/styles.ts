@@ -52,6 +52,13 @@ export const Tabs = styled(NavLink)`
   transition-duration: 0.4s;
   text-decoration: none;
 
+  &.active {
+  color: darkviolet;
+  background:rgb(147, 147, 147);
+  border-radius: 20px;
+  padding:10px;
+}
+
   &:hover {
   color:darkviolet;
   background:rgb(147, 147, 147);

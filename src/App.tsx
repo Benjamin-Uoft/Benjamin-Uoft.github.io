@@ -1,8 +1,9 @@
 // import { useState } from 'react'
 import { HeaderBar, Title, Tabs, SearchIcon, LanguageToggle, HeaderContainer, TreeContainer } from './components/styles';
+import Search from './components/Search';
 import { TiArrowSortedDown } from "react-icons/ti";
-import { FaSearch } from "react-icons/fa";
 import { Outlet } from 'react-router-dom';
+import {  useEffect, useRef, useState } from 'react';
 // import { ReactFlow } from '@xyflow/react';
  
 // import '@xyflow/react/dist/style.css';
@@ -13,7 +14,27 @@ import { Outlet } from 'react-router-dom';
 // ];
 // const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
 
+
+
 function App() {
+  const [isClicked, setIsClicked] = useState(false); // State to track click
+
+  const searchRef = useRef<HTMLDivElement>(null); // Ref for the search bar
+
+  // Add a global click listener
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setIsClicked(false); // Close the search bar if clicked outside
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
 
   return (
     
@@ -23,11 +44,15 @@ function App() {
           <Title to = '/'>Family tree</Title>
           <Tabs to='/about'>About</Tabs>
           <Tabs to = '/request-edit'>Request an edit</Tabs>
-
         </HeaderBar>
-        <SearchIcon>
-          <FaSearch size={35} color="white" />
-        </SearchIcon>
+
+        <div ref={searchRef}>
+          <Search
+            isFocused={isClicked}
+            onClick={() => setIsClicked(!isClicked)}
+          />
+        </div>
+          
       </HeaderContainer>
       <Outlet />
       {/* <TreeContainer>
