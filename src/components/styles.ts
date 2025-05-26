@@ -1,15 +1,18 @@
 import styled from 'styled-components';
+import { NavLink } from "react-router-dom";
 
 export const HeaderContainer = styled.header`
   background:transparent;
   position: absolute;
-  top: -10px;
+  top: 10px;
   left: 10px;
   display: flex;
   align-items: center;
 `
 
 export const TreeContainer = styled.div`
+  height: 100%;
+  width: 100%;
   position:absolute;
   top: 0;
   left: 0;
@@ -19,7 +22,7 @@ export const TreeContainer = styled.div`
 
 `;
 
-export const HeaderBar = styled.h1`
+export const HeaderBar = styled.nav`
   background: grey;
   border-radius: 20px;
   padding: 5px 20px 5px 40px;
@@ -28,20 +31,26 @@ export const HeaderBar = styled.h1`
   gap: 30px;
 `;
 
-export const Title = styled.h1`
+export const Title = styled(NavLink)`
   color: white;
   font-size: 2.8rem;
   font-family: 'Roboto', sans-serif;
   margin: 0;
   white-space: nowrap;
-  display: 
+  transition-duration: 0.4s;
+  text-decoration: none;
+
+  &:hover {
+  color:darkviolet;
+  cursor:pointer;}
 `;
 
-export const Tabs = styled.nav`
+export const Tabs = styled(NavLink)`
   color: white;
   font-size: 1.5rem;
   font-family: 'Roboto', sans-serif;
   transition-duration: 0.4s;
+  text-decoration: none;
 
   &:hover {
   color:darkviolet;
