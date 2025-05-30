@@ -16,7 +16,7 @@ export const SearchIcon = styled.button`
     background: darkviolet;}
   `
 
-function Search({isFocused, onClick}: {isFocused: boolean, onClick: () => void}) {
+function SearchComponent({isFocused, onClick}: {isFocused: boolean, onClick: () => void}) {
     if (isFocused) {
         return (
             <div>
@@ -36,4 +36,4 @@ function Search({isFocused, onClick}: {isFocused: boolean, onClick: () => void})
   
 }
 
-export default Search
+export default SearchComponent;

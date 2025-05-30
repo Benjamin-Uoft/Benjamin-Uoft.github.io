@@ -1,4 +1,3 @@
-import { HeaderBar, Title } from './components/styles';
 import styled from 'styled-components';
 
 
